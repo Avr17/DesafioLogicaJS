@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Variação de Preço</title>
+</head>
+<body>
+    <h1>Calculadora de Variação de Preço</h1>
+    <button onclick="calcularVariacaoPreco()">Clique aqui para inserir os preços</button>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularVariacaoPreco() {
+            const precoAnterior = parseFloat(prompt("Digite o preço anterior do produto:"));
+            const precoAtual = parseFloat(prompt("Digite o preço atual do produto:"));
+
+            if (isNaN(precoAnterior) || isNaN(precoAtual)) {
+                alert("Por favor, insira valores numéricos válidos para os preços.");
+                return;
+            }
+
+            const variacao = precoAtual - precoAnterior;
+            const percentualVariacao = (variacao / precoAnterior) * 100;
+
+            const resultado = `
+                Preço anterior: R$ ${precoAnterior.toFixed(2)}
+                Preço atual: R$ ${precoAtual.toFixed(2)}
+                Variação: R$ ${variacao.toFixed(2)}
+                Variação percentual: ${percentualVariacao.toFixed(2)}%
+            `;
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>

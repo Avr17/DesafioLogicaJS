@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <h1>Conversor de Temperatura</h1>
+    <button onclick="converterTemperatura()">Clique aqui para inserir a temperatura em Kelvin</button>
+    <div id="resultado"></div>
+
+    <script>
+        function converterTemperatura() {
+            const kelvin = parseFloat(prompt("Digite a temperatura em Kelvin:"));
+            if (isNaN(kelvin)) {
+                alert("Por favor, insira um valor numérico válido.");
+                return;
+            }
+
+            const fahrenheit = (kelvin - 273.15) * (9 / 5) + 32;
+
+            const resultado = `
+                ${kelvin.toFixed(2)} Kelvin é igual a:
+                ${fahrenheit.toFixed(2)} graus Fahrenheit
+            `;
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>

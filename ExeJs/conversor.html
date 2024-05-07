@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Distâncias</title>
+</head>
+<body>
+    <h1>Conversor de Distâncias</h1>
+    <button onclick="solicitarDistancia()">Converter</button>
+    <div id="resultado"></div>
+
+    <script>
+        function solicitarDistancia() {
+            const metros = Number(prompt("Converter medida:"));
+            if (isNaN(metros)) {
+                alert("Por favor, insira um valor numérico válido.");
+                return;
+            }
+
+            const centimetros = metros * 100;
+            const decimetros = metros * 10;
+            const hectometros = metros / 100;
+            const decametros = metros / 10;
+            const quilometros = metros / 1000;
+            const milimetros = metros * 1000;
+
+            const resultado = `
+                ${metros} metros é igual a:
+                ${centimetros} centímetros
+                ${decimetros} decímetros
+                ${hectometros} hectômetros
+                ${decametros} decâmetros
+                ${quilometros} quilômetros
+                ${milimetros} milímetros
+            `;
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>

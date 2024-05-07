@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+</head>
+<body>
+    <h1>Conversor de Moedas</h1>
+    <button onclick="converterMoeda()">Clique aqui para inserir o valor em reais (R$)</button>
+    <div id="resultado"></div>
+
+    <script>
+        function converterMoeda() {
+            const reais = parseFloat(prompt("Digite o valor em reais (R$):"));
+            if (isNaN(reais)) {
+                alert("Por favor, insira um valor numérico válido.");
+                return;
+            }
+
+            // Taxa de conversão (cotação do dia 30/04/2024)
+            const taxaDolar = 0.1934;
+            const dolares = reais * taxaDolar;
+
+            const resultado = `
+                R$ ${reais.toFixed(2)} é igual a:
+                $ ${dolares.toFixed(2)} dólares
+            `;
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>
