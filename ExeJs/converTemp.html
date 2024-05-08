@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Temperatura</title>
+    <style>
+        body { font: 12pt Arial;}
+        button{font-size: 12pt; padding: 30px;}
+        #resultado {padding: auto; font-weight: bold;}
+    </style>
 </head>
 <body>
     <h1>Conversor de Temperatura</h1>
-    <button onclick="converterTemperatura()">Clique aqui para inserir a temperatura em Kelvin</button>
+    <button onclick="converterTemperatura()">Converter</button>
+    <p>Clique acima para inserir temperatura</p>
     <div id="resultado"></div>
 
     <script>
         function converterTemperatura() {
-            const kelvin = parseFloat(prompt("Digite a temperatura em Kelvin:"));
-            if (isNaN(kelvin)) {
+            const temperaturaCelsius  = parseFloat(prompt("Digite a temperatura °C:"));
+            if (isNaN(temperaturaCelsius)) {
                 alert("Por favor, insira um valor numérico válido.");
                 return;
             }
 
-            const fahrenheit = (kelvin - 273.15) * (9 / 5) + 32;
+            const temperaturaKelvin  = (temperaturaCelsius + 273.15);
+            const temperaturaFahrenheit = (temperaturaCelsius * 9 / 5) + 32;
 
             const resultado = `
-                ${kelvin.toFixed(2)} Kelvin é igual a:
-                ${fahrenheit.toFixed(2)} graus Fahrenheit
+                ${temperaturaKelvin.toFixed(2)} °Kelvin 
+
+                ${temperaturaFahrenheit.toFixed(2)} °Fahrenheit
             `;
 
             document.getElementById("resultado").innerText = resultado;

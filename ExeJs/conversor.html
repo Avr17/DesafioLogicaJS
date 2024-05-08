@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Distâncias</title>
+    <style>
+        body { font: 12pt Arial;}
+        button{font-size: 12pt; padding: 30px;}
+        #resultado {padding: auto; font-weight: bold;}
+    </style>
 </head>
 <body>
     <h1>Conversor de Distâncias</h1>
     <button onclick="solicitarDistancia()">Converter</button>
+    <p> <strong>Clique no botão acima para inciar</strong></p>
     <div id="resultado"></div>
 
     <script>
@@ -18,7 +24,7 @@
                 return;
             }
 
-            const centimetros = metros * 100;
+            const centimetros = metros * 100; 
             const decimetros = metros * 10;
             const hectometros = metros / 100;
             const decametros = metros / 10;
@@ -27,11 +33,17 @@
 
             const resultado = `
                 ${metros} metros é igual a:
+
                 ${centimetros} centímetros
+
                 ${decimetros} decímetros
+
                 ${hectometros} hectômetros
+
                 ${decametros} decâmetros
+
                 ${quilometros} quilômetros
+                
                 ${milimetros} milímetros
             `;
             document.getElementById("resultado").innerText = resultado;
